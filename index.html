@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ideabox Triples</title>
+  <link rel="shortcut icon" type="image/png" href="images/favicon.png"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel = 'stylesheet' href = 'normalize.css'> 
+  <link rel = 'stylesheet' href = 'styles.css'> 
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700,800" rel="stylesheet"> 
+</head>
+<body>
+  <nav>
+    <h1 class="page-title-purple">ideabox<span class="page-title-white">triples</span></h1>
+    <form class="search-form">
+      <input type="text" placeholder=" Search" id="search-input">
+      <button type="submit" class="search-button">
+        <i class="fas fa-search"></i>
+      </button>
+    </form>
+  </nav>
+  <header>
+    <form class="idea-form">
+      <label for="title-input">Title</label>
+        <input type="text" id="title-input" class="inputs">
+      <label for="body-input">Body</label>
+        <textarea type="text" id="body-input" class="inputs"></textarea>
+      <button type="submit" class="save-button buttons">Save</button>
+      <div class="filter-buttons-section">
+        <button class="filter-button buttons swill-button">Swill</button>
+        <button class="filter-button buttons plausible-button">Plausible</button>
+        <button class="filter-button buttons genius-button">Genius</button>
+        <button class="filter-button buttons reset-button">Reset</button>
+      </div>
+    </form>
+  </header>
+  <div class="show-more-wrapper">
+    <article class="overflow" id="card-article"></article>
+    <button class="show-more-button buttons">Show More</button>
+  </div>  
+<script type="text/javascript" src="idea.js"></script>
+<script type="text/javascript" src="main.js"></script>
+</body>
+</html>
