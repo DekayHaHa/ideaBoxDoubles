@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700,800" rel="stylesheet"> 
 </head>
 <body>
-  <nav>
+  <header>
     <h1 class="page-title-purple">ideabox<span class="page-title-white">triples</span></h1>
     <form class="search-form">
       <input type="text" placeholder=" Search" id="search-input">
@@ -19,13 +19,13 @@
         <i class="fas fa-search"></i>
       </button>
     </form>
-  </nav>
-  <header>
+  </header>
+  <main>
     <form class="idea-form">
       <label for="title-input">Title</label>
-        <input type="text" id="title-input" class="inputs">
+      <input type="text" id="title-input" class="inputs">
       <label for="body-input">Body</label>
-        <textarea type="text" id="body-input" class="inputs"></textarea>
+      <textarea type="text" id="body-input" class="inputs"></textarea>
       <button type="submit" class="save-button buttons">Save</button>
       <div class="filter-buttons-section">
         <button class="filter-button buttons swill-button">Swill</button>
@@ -34,12 +34,23 @@
         <button class="filter-button buttons reset-button">Reset</button>
       </div>
     </form>
-  </header>
-  <div class="show-more-wrapper">
-    <article class="overflow" id="card-article"></article>
-    <button class="show-more-button buttons">Show More</button>
-  </div>  
-<script type="text/javascript" src="idea.js"></script>
-<script type="text/javascript" src="main.js"></script>
+  </main>
+  <article class="card-section">
+   <!--  <article class="card">
+      <h2>Title</h2>
+      <p>Body</p>
+      <section class="button-corral">
+        <div class="vote">
+          <button class="downvote"></button>
+          <button class="upvote"></button>
+          <p class="quality">Quality</p>
+        </div>
+        <button class="delete"></button>
+      </section>
+    </article> -->
+    <!-- <button class="show-more-button buttons">Show More</button> -->
+  </article>
+  <script type="text/javascript" src="idea.js"></script>
+  <script type="text/javascript" src="main.js"></script>
 </body>
 </html>
