@@ -1,6 +1,7 @@
 var titleInput = document.getElementById("title-input");
 var bodyInput = document.getElementById("body-input");
 var saveButton = document.querySelector(".save-button");
+var ideaArray = localStorage.getItem(ideaArray) || []; 
 
 saveButton.addEventListener("click", newIdea)
 
@@ -30,7 +31,8 @@ function newIdea (e) {
     
 function ideaClass () {
     var newIdea = new Idea(Date.now(), titleInput.value, bodyInput.value);
-    newIdea.saveToStorage();
+    newIdea.saveToStorage(ideaArray);
+    ideaArray.push(newIdea); 
 }
 
 function clearFields () {
