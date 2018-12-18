@@ -133,17 +133,13 @@ label {
 /* card section */
 
 .card-section {
-  display: grid;
-  display: block;
-  grid-template-rows: 1fr 3fr 1fr;
-  grid-template-areas:
-  ". middle ."
-
 }
 
 .new-card {
+  margin: 10px auto;
   border: 2px solid grey;
   grid-area: middle;
+  width: 50%;
 
 }
 /*.show-more-wrapper {
