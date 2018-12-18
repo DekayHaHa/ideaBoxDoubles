@@ -6,13 +6,14 @@ saveButton.addEventListener("click", newIdea)
 
 function newIdea (e) {
   e.preventDefault();
+
   var cardIdea = document.createElement("article")
   var newCard = document.querySelector(".card-section")
   cardIdea.className = 'new-card';
   cardIdea.innerHTML = 
   `<article class="card">
       <h2>${titleInput.value}</h2>
-      <p>Body</p>
+      <p>${bodyInput.value}</p>
       <section class="button-corral">
         <div class="vote">
           <button class="downvote"></button>
@@ -23,5 +24,16 @@ function newIdea (e) {
       </section>
     </article>`;
     newCard.insertBefore(cardIdea, newCard.firstChild);
+    ideaClass();
+    clearFields();
   }
     
+function ideaClass () {
+    var newIdea = new Idea(Date.now(), titleInput.value, bodyInput.value);
+    newIdea.saveToStorage();
+}
+
+function clearFields () {
+  titleInput.value = "";
+  bodyInput.value = "";
+}
