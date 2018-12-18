@@ -5,7 +5,10 @@ class Idea {
     // this.quality = quality || swill;
     this.id = id;
   }
-  saveToStorage () {
-    localStorage.setItem(JSON.stringify(Date.now()), JSON.stringify(this));
+
+  saveToStorage(ideaArray) {
+    // create array - push array - then save array 
+
+    localStorage.setItem("ideaArray", JSON.stringify(ideaArray));
   }
 }
