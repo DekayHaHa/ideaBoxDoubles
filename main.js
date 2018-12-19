@@ -3,24 +3,23 @@ var bodyInput = document.getElementById("body-input");
 var saveButton = document.querySelector(".save-button");
 var ideaArray = JSON.parse(localStorage.getItem("ideaArray")) || []; 
 
-saveButton.addEventListener("click", newIdea);
-
+saveButton.addEventListener("click", ideaClass);
 window.addEventListener("load", cardPersist);
+
 function cardPersist() {
   ideaArray.forEach(function(e) {
-  newIdea(e);
+  newCard(e.id,e.title,e.body);
   })
 }
 
-
-function newIdea() {
+function newCard(id, title, body) {
   var cardIdea = document.createElement("article")
   var newCard = document.querySelector(".card-section")
   cardIdea.className = 'new-card';
   cardIdea.innerHTML = 
   `<article class="card">
-      <h2>${titleInput.value}</h2>
-      <p>${bodyInput.value}</p>
+      <h2>${title || titleInput.value}</h2>
+      <p>${body || bodyInput.value}</p>
       <section class="button-corral">
         <div class="vote">
           <button class="downvote"></button>
@@ -31,14 +30,14 @@ function newIdea() {
       </section>
     </article>`;
     newCard.insertBefore(cardIdea, newCard.firstChild);
-    ideaClass();
-    clearFields();
   }
     
 function ideaClass () {
     var newIdea = new Idea(Date.now(), titleInput.value, bodyInput.value);
     ideaArray.push(newIdea); 
     newIdea.saveToStorage(ideaArray);
+    newCard();
+    clearFields();
 }
 
 function clearFields () {
