@@ -3,11 +3,17 @@ var bodyInput = document.getElementById("body-input");
 var saveButton = document.querySelector(".save-button");
 var ideaArray = JSON.parse(localStorage.getItem("ideaArray")) || []; 
 
-saveButton.addEventListener("click", newIdea)
+saveButton.addEventListener("click", newIdea);
 
-function newIdea (e) {
-  e.preventDefault();
+window.addEventListener("load", cardPersist);
+function cardPersist() {
+  ideaArray.forEach(function(e) {
+  newIdea(e);
+  })
+}
 
+
+function newIdea() {
   var cardIdea = document.createElement("article")
   var newCard = document.querySelector(".card-section")
   cardIdea.className = 'new-card';
