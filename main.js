@@ -2,9 +2,11 @@ var titleInput = document.getElementById("title-input");
 var bodyInput = document.getElementById("body-input");
 var saveButton = document.querySelector(".save-button");
 var ideaArray = JSON.parse(localStorage.getItem("ideaArray")) || []; 
+// var deleteButton = document.querySelector(".delete");
 
 saveButton.addEventListener("click", ideaClass);
 window.addEventListener("load", cardPersist);
+// deleteButton.addEventListener("click", deleteCard);
 
 function cardPersist() {
   ideaArray.forEach(function(e) {
@@ -30,9 +32,11 @@ function newCard(id, title, body) {
       </section>
     </article>`;
     newCard.insertBefore(cardIdea, newCard.firstChild);
+    var deleteButton = document.querySelector(".delete");
+    deleteButton.addEventListener("click", deleteCard);
   }
     
-function ideaClass () {
+function ideaClass() {
     var newIdea = new Idea(Date.now(), titleInput.value, bodyInput.value);
     ideaArray.push(newIdea); 
     newIdea.saveToStorage(ideaArray);
@@ -40,7 +44,16 @@ function ideaClass () {
     clearFields();
 }
 
-function clearFields () {
+function clearFields() {
   titleInput.value = "";
   bodyInput.value = "";
+}
+
+function deleteCard(e) {
+  if (e.target.className === 'delete') {
+    e.target.closest(".card").remove();
+    var id = e.target.closest('.card').dataset.index;
+    var ideaDeleteMethods = new Idea('', '', id);
+    ideaDeleteMethods.deleteFromStorage();
+  }
 }

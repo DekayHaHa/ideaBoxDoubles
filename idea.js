@@ -11,4 +11,8 @@ class Idea {
 
     localStorage.setItem("ideaArray", JSON.stringify(ideaArray));
   }
+
+  deleteFromStorage() {
+    localStorage.removeItem(this.id);
+  }
 }
