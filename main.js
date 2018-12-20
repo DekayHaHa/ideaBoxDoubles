@@ -20,15 +20,15 @@ function newCard(id, title, body) {
   cardIdea.className = 'new-card';
   cardIdea.innerHTML = 
   `<article class="card">
-      <h2>${title || titleInput.value}</h2>
-      <p>${body || bodyInput.value}</p>
+      <h2>${title}</h2>
+      <p>${body}</p>
       <section class="button-corral">
         <div class="vote">
           <button class="downvote"></button>
           <button class="upvote"></button>
           <p class="quality">Quality</p>
         </div>
-        <button class="delete"></button>
+        <button class="delete" data-id="${id}"></button>
       </section>
     </article>`;
     newCard.insertBefore(cardIdea, newCard.firstChild);
@@ -40,7 +40,7 @@ function ideaClass() {
     var newIdea = new Idea(Date.now(), titleInput.value, bodyInput.value);
     ideaArray.push(newIdea); 
     newIdea.saveToStorage(ideaArray);
-    newCard();
+    newCard(Date.now(), titleInput.value, bodyInput.value);
     clearFields();
 }
 
@@ -50,10 +50,30 @@ function clearFields() {
 }
 
 function deleteCard(e) {
+  // let cardDelete = e.target.closest('.card').dataset.index;
   if (e.target.className === 'delete') {
-    e.target.closest(".card").remove();
-    var id = e.target.closest('.card').dataset.index;
-    var ideaDeleteMethods = new Idea('', '', id);
-    ideaDeleteMethods.deleteFromStorage();
+    e.target.parentElement.parentElement.parentElement.remove();
+    let cardId = this.getAttribute('data-id');
+    console.log(cardId);
+    let cardDelete = ideaArray.find(x => x.id == cardId);
+    console.log(cardDelete);
+    cardDelete.deleteFromStorage();
+    // let id = e.target.closest('.card').dataset.index;
+
+
+    // 
+    // let index = ideaArray.findIndex(x => x.id == cardId);
+    // ideaArray.splice(index,1);
+
+    // ideaArray.forEach(function(e) {
+    //   if(this.id === id){
+
+    //   }
+    // })
+    // cardId.deleteFromStorage();
   }
 }
+
+//     document.querySelector(".delete").addEventListener("click", function(){
+//     );
+// });
