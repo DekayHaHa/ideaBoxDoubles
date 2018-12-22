@@ -56,30 +56,34 @@ function deleteCard(thisId) {
 }
 
 function qualityChangeDown(cardId) {
-
   let card = ideaArray.find(idea => idea.id === cardId);
   let quality = card.quality;
-  // let qualityText = document.querySelector(".quality")
-  // qualityText.innerText = `Quality: ${quality}`
   if (quality === "plausible") {
     card.updateQuality(0);
   }
   if (quality === "genius") {
     card.updateQuality(1);
   }
+  qualityText(quality);
+  cardPersist();
+  console.log(quality);
 }
 
 function qualityChangeUp(cardId) {
   let card = ideaArray.find(idea => idea.id === cardId);
   let quality = card.quality;
-  // let qualityText = document.querySelector(".quality")
-  // qualityText.innerText = `Quality: ${quality}`
   if (quality === "swill") {
     card.updateQuality(1);
   }
   if (quality === "plausible") {
     card.updateQuality();
   }
-
+  qualityText(quality);
+  cardPersist();
+  console.log(quality);
 }
 
+function qualityText(quality) {
+  let qualityText = document.querySelector(".quality");
+  qualityText.innerText = `Quality: ${quality}`;
+}
