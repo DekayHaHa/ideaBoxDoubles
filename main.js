@@ -9,7 +9,7 @@ window.addEventListener("load", cardPersist);
 function cardPersist() {
   Object.keys(localStorage).forEach(function(card){
   var item = JSON.parse(localStorage.getItem(card)); 
-  var newIdea = new Idea(item.id, item.title, item.body);  
+  var newIdea = new Idea(item.id, item.title, item.body, item.quality);  
   ideaArray.push(newIdea);
   newCard(newIdea);
   });
@@ -31,11 +31,11 @@ function newCard(idea) {
       <p>${idea.body}</p>
       <section class="button-corral">
         <div class="vote">
-          <button class="downvote"></button>
-          <button class="upvote"></button>
-          <p class="quality">Quality</p>
+          <img class="downvote" src="images/downvote.svg">
+          <img class="upvote" src="images/upvote.svg">
+          <p class="quality">Quality: ${idea.quality || "swill"}</p>
         </div>
-        <button class="delete" data-id="${idea.id}" onclick="deleteCard(${idea.id})"></button>
+        <img class="delete" data-id="${idea.id}" onclick="deleteCard(${idea.id})" src="images/delete.svg">
       </section>
     </article>`);
   }

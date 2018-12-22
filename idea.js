@@ -1,9 +1,9 @@
 class Idea {
-  constructor(id, title, body){
+  constructor(id, title, body, quality){
     this.id = id;
     this.title = title;
     this.body = body;
-    // this.quality = quality || swill;
+    this.quality = quality || "swill";
   }
 
   saveToStorage() {
@@ -13,6 +13,10 @@ class Idea {
 
   deleteFromStorage() {
     localStorage.removeItem(this.id);
+  }
+
+  updateQuality() {
+    
   }
 
 }
