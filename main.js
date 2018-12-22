@@ -50,7 +50,7 @@ function deleteCard(thisId) {
     let cardDelete = ideaArray.find(idea => idea.id === thisId);
     let index = ideaArray.findIndex(idea => idea.id === thisId);
     ideaArray.splice(index,1);
-    var wholeCard = document.getElementById(thisId.toString());
+    let wholeCard = document.getElementById(thisId.toString());
     wholeCard.remove();
     cardDelete.deleteFromStorage();
 

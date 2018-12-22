@@ -135,11 +135,11 @@ label {
 .card-section {
 }
 
-.new-card {
-  margin: 10px auto;
+.card {
+  margin: 20px auto;
   border: 2px solid grey;
-  grid-area: middle;
-  width: 50%;
+  /*grid-area: middle;*/
+  width: 60%;
 
 }
 /*.show-more-wrapper {
@@ -254,6 +254,9 @@ section {
   }
   .idea-body {
     overflow: scroll;
+  }
+  .card {
+    width: 93%;
   }
 }
 
