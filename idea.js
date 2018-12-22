@@ -15,8 +15,15 @@ class Idea {
     localStorage.removeItem(this.id);
   }
 
-  updateQuality() {
-    
+  updateQuality(check) {
+    if (check === 0) {
+      this.quality = "swill"
+    } else if (check === 1) {
+      this.quality = "plausible"
+    } else {
+    this.quality = "genius"
+    }
+    this.saveToStorage();
   }
 
 }
