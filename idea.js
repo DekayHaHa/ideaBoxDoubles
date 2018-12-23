@@ -26,4 +26,14 @@ class Idea {
     this.saveToStorage();
   }
 
+  updateContent(newText, category) {
+    if (category === "title") {
+      this.title = newText;
+    }
+    if (category === "body") {
+      this.body = newText;
+    }
+    this.saveToStorage();
+  }
+
 }
