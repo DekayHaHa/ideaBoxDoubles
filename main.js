@@ -1,11 +1,9 @@
-var titleInput = document.getElementById("title-input");
-var bodyInput = document.getElementById("body-input");
-var saveButton = document.querySelector(".save-button");
-var cardSection = document.querySelector(".card-section");
-var ideaArray = []; 
-
-saveButton.addEventListener("click", ideaClass);
+document.querySelector(".save-button").addEventListener("click", ideaClass);
 window.addEventListener("load", cardPersist);
+var ideaArray = []; 
+// document.getElementById("search-input").addEventListener("keydown", searchFilter)
+
+
 
 function cardPersist() {
   Object.keys(localStorage).forEach(function(card){
@@ -17,6 +15,8 @@ function cardPersist() {
 }
 
 function ideaClass() {
+  var titleInput = document.getElementById("title-input");
+  var bodyInput = document.getElementById("body-input");
   var newIdea = new Idea(Date.now(), titleInput.value, bodyInput.value);
   ideaArray.push(newIdea); 
   newIdea.saveToStorage();
@@ -25,6 +25,7 @@ function ideaClass() {
 }
 
 function newCard(idea) {
+  var cardSection = document.querySelector(".card-section");
   cardSection.insertAdjacentHTML('afterbegin',
     `<article class="card"  id="${idea.id}">
     <h2 class="title" data-id="${idea.id}" contenteditable="true" onfocusout="cardChange('title')" onkeydown="enterKey('title')">${idea.title}</h2>
@@ -33,7 +34,7 @@ function newCard(idea) {
     <div class="vote">
     <img class="downvote" onclick="qualityChangeDown(${idea.id})" src="images/downvote.svg">
     <img class="upvote" onclick="qualityChangeUp(${idea.id})" src="images/upvote.svg">
-    <p class="quality">Quality: ${idea.quality}</p>
+    <p>Quality: <span id="quality">${idea.quality}</span></p>
     </div>
     <img class="delete" data-id="${idea.id}" onclick="deleteCard(${idea.id})" src="images/delete.svg">
     </section>
@@ -41,6 +42,8 @@ function newCard(idea) {
 }
 
 function clearFields() {
+  var titleInput = document.getElementById("title-input");
+  var bodyInput = document.getElementById("body-input");
   titleInput.value = "";
   bodyInput.value = "";
 }
@@ -63,16 +66,18 @@ function deleteCard(thisId) {
 }
 
 function qualityChangeDown(cardId) {
-
+  console.log(event.target.parentElement.childElement)
   let card = ideaArray.find(idea => idea.id === cardId);
   let quality = card.quality;
   // let qualityText = document.querySelector(".quality")
   // qualityText.innerText = `Quality: ${quality}`
   if (quality === "plausible") {
     card.updateQuality(0);
+    document.getElementById("quality").innerText = "swill";
   }
   if (quality === "genius") {
     card.updateQuality(1);
+    document.getElementById("quality").innerText = "plausible";
   }
 }
 
@@ -83,9 +88,11 @@ function qualityChangeUp(cardId) {
   // qualityText.innerText = `Quality: ${quality}`
   if (quality === "swill") {
     card.updateQuality(1);
+    document.getElementById("quality").innerText = "plausible";
   }
   if (quality === "plausible") {
     card.updateQuality();
+    document.getElementById("quality").innerText = "genius";
   }
 }
 
