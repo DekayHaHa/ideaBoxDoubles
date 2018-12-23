@@ -1,7 +1,7 @@
+// document.getElementById("search-input").addEventListener("keydown", searchFilter)
 document.querySelector(".save-button").addEventListener("click", ideaClass);
 window.addEventListener("load", cardPersist);
 var ideaArray = []; 
-// document.getElementById("search-input").addEventListener("keydown", searchFilter)
 
 
 
@@ -66,33 +66,28 @@ function deleteCard(thisId) {
 }
 
 function qualityChangeDown(cardId) {
-  console.log(event.target.parentElement.childElement)
   let card = ideaArray.find(idea => idea.id === cardId);
   let quality = card.quality;
-  // let qualityText = document.querySelector(".quality")
-  // qualityText.innerText = `Quality: ${quality}`
   if (quality === "plausible") {
     card.updateQuality(0);
-    document.getElementById("quality").innerText = "swill";
+    event.target.parentElement.childNodes[5].childNodes[1].innerText = "swill";
   }
   if (quality === "genius") {
     card.updateQuality(1);
-    document.getElementById("quality").innerText = "plausible";
+    event.target.parentElement.childNodes[5].childNodes[1].innerText = "plausible";
   }
 }
 
 function qualityChangeUp(cardId) {
   let card = ideaArray.find(idea => idea.id === cardId);
   let quality = card.quality;
-  // let qualityText = document.querySelector(".quality")
-  // qualityText.innerText = `Quality: ${quality}`
   if (quality === "swill") {
     card.updateQuality(1);
-    document.getElementById("quality").innerText = "plausible";
+    event.target.parentElement.childNodes[5].childNodes[1].innerText = "plausible";
   }
   if (quality === "plausible") {
     card.updateQuality();
-    document.getElementById("quality").innerText = "genius";
+    event.target.parentElement.childNodes[5].childNodes[1].innerText = "genius";
   }
 }
 
@@ -110,6 +105,28 @@ function cardChange(category) {
     let newText = event.target.innerText;
     card.updateContent(newText, category);
   }
+}
+
+function searchFilter (text) {
+  let filteredArray = ideaArray.filter(function(idea) {
+    let inputText = text.toLowerCase();
+    if (idea.title.toLowerCase().includes(inputText) || idea.body.toLowerCase().includes(inputText)) {
+      return idea;
+    }
+  })
+  clearCards();
+  filteredIdeas(filteredArray);
+}
+
+function clearCards () {
+  var cardSection = document.querySelector(".card-section");
+  cardSection.innerHTML = "";
+}
+
+function filteredIdeas (array) {
+  array.forEach(function (idea) {
+    newCard(idea);
+  })
 }
 
 
