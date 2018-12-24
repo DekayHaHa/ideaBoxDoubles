@@ -139,3 +139,14 @@ function showButton () {
     event.target.innerText = "Show More"
   }
 }
+
+function characterCount (value) {
+  let bodyCount = document.querySelector(".body-count");
+  let titleCount = document.querySelector(".title-count")
+  if (event.target.id === "body-input") {
+    value.length === 0 ? bodyCount.innerText = "" : bodyCount.innerText = ` | Character Count ${value.length}`;
+  } 
+  if (event.target.id === "title-input") {
+    value.length === 0 ? titleCount.innerText = "" : titleCount.innerText = ` | Character Count ${value.length}`;
+  }
+}

@@ -22,10 +22,10 @@
   </header>
   <main>
     <form class="idea-form">
-      <label for="title-input">Title</label>
-      <input type="text" id="title-input" class="inputs">
-      <label for="body-input">Body</label>
-      <textarea type="text" id="body-input" class="inputs"></textarea>
+      <label for="title-input">Title <span class="title-count"></span></label>
+      <input type="text" id="title-input" oninput="characterCount(this.value)" class="inputs">
+      <label for="body-input">Body <span class="body-count"></span></label>
+      <textarea type="text" id="body-input" oninput="characterCount(this.value)" class="inputs"></textarea>
       <input type="button" class="save-button buttons" value="Save">
       <div class="filter-buttons-section">
         <button class="filter-button buttons swill-button">Swill</button>
