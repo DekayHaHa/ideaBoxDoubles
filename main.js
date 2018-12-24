@@ -92,18 +92,18 @@ function qualityChangeUp(cardId) {
 
 
 function cardChange(category) {
-  if (category === 'title') {
+  // if (category === 'title') {
     let cardId = JSON.parse(event.target.dataset.id);
     let card = ideaArray.find(idea => idea.id === cardId);
     let newText = event.target.innerText;
     card.updateContent(newText, category);
-  }
-  if (category === 'body') {
-    let cardId = JSON.parse(event.target.dataset.id);
-    let card = ideaArray.find(idea => idea.id === cardId);
-    let newText = event.target.innerText;
-    card.updateContent(newText, category);
-  }
+  // }
+  // if (category === 'body') {
+  //   let cardId = JSON.parse(event.target.dataset.id);
+  //   let card = ideaArray.find(idea => idea.id === cardId);
+  //   let newText = event.target.innerText;
+  //   card.updateContent(newText, category);
+  // }
 }
 
 function searchFilter (text) {
