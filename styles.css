@@ -4,6 +4,12 @@
   padding: 0px;
 }
 
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+}
+
 body {
   background-color: #F9F9FA;
 }
@@ -130,17 +136,28 @@ label {
   width: 25%;
 }
 
+.show-more-button {
+  width: 100%;
+}
+
 /* card section */
 
 .card-section {
+  
+}
+
+.max-height {
+  max-height: 1210px;
+  overflow: hidden;
 }
 
 .card {
   margin: 20px auto;
   border: 2px solid grey;
-  /*grid-area: middle;*/
+  height: 100px;
   width: 60%;
 }
+
 /*
 .show-more-wrapper {
   background-color: #F9F9FA; 

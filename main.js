@@ -1,4 +1,3 @@
-// document.getElementById("search-input").addEventListener("keydown", searchFilter)
 document.querySelector(".save-button").addEventListener("click", ideaClass);
 window.addEventListener("load", cardPersist);
 var ideaArray = []; 
@@ -129,4 +128,14 @@ function filteredIdeas (array) {
   })
 }
 
-
+function showButton () {
+  event.preventDefault();
+  var cardHolder = document.getElementById("max-height");
+  if (event.target.innerText === "Show More") {
+    cardHolder.classList.remove("max-height");
+    event.target.innerText = "Show Less";
+  } else {
+    cardHolder.classList.add("max-height")
+    event.target.innerText = "Show More"
+  }
+}
