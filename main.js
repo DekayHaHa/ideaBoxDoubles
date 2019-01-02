@@ -43,12 +43,16 @@ function newCard(idea) {
 function clearFields() {
   var titleInput = document.getElementById("title-input");
   var bodyInput = document.getElementById("body-input");
+  let bodyCount = document.querySelector(".body-count");
+  let titleCount = document.querySelector(".title-count");
+  bodyCount.innerText = "";
+  titleCount.innerText = "";
   titleInput.value = "";
   bodyInput.value = "";
 }
 
 function enterKey (category) {
-  var key = event.keyCode;
+  let key = event.keyCode;
   if (key === 13) { 
     cardChange(category);
   }
@@ -92,18 +96,19 @@ function qualityChangeUp(cardId) {
 
 
 function cardChange(category) {
-  if (category === 'title') {
+  // if (category === 'title') {
+    console.log(doggo)
     let cardId = JSON.parse(event.target.dataset.id);
     let card = ideaArray.find(idea => idea.id === cardId);
     let newText = event.target.innerText;
     card.updateContent(newText, category);
-  }
-  if (category === 'body') {
-    let cardId = JSON.parse(event.target.dataset.id);
-    let card = ideaArray.find(idea => idea.id === cardId);
-    let newText = event.target.innerText;
-    card.updateContent(newText, category);
-  }
+  // }
+  // if (category === 'body') {
+  //   let cardId = JSON.parse(event.target.dataset.id);
+  //   let card = ideaArray.find(idea => idea.id === cardId);
+  //   let newText = event.target.innerText;
+  //   card.updateContent(newText, category);
+  // }
 }
 
 function searchFilter (text) {
@@ -140,6 +145,18 @@ function showButton () {
   }
 }
 
+
+function characterCount (value) {
+  let bodyCount = document.querySelector(".body-count");
+  let titleCount = document.querySelector(".title-count");
+  if (event.target.id === "body-input") {
+    value.length === 0 ? bodyCount.innerText = "" : bodyCount.innerText = ` | Character Count ${value.length}`;
+  } 
+  if (event.target.id === "title-input") {
+    value.length === 0 ? titleCount.innerText = "" : titleCount.innerText = ` | Character Count ${value.length}`;
+  }
+}
+
 document.querySelector('.filter-buttons-section').addEventListener('click', buttonDetect);
 
 function buttonDetect(e) {
@@ -169,5 +186,6 @@ function buttonDetect(e) {
   clearCards();
   filteredIdeas(filteredArray);
 }
+
 
 
