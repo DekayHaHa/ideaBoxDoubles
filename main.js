@@ -33,7 +33,7 @@ function newCard(idea) {
     <div class="vote">
     <img class="downvote" onclick="qualityChangeDown(${idea.id})" src="images/downvote.svg">
     <img class="upvote" onclick="qualityChangeUp(${idea.id})" src="images/upvote.svg">
-    <p>Quality: <span id="quality">${idea.quality}</span></p>
+    <p class="quality-text">Quality: <span id="quality">${idea.quality}</span></p>
     </div>
     <img class="delete" data-id="${idea.id}" onclick="deleteCard(${idea.id})" src="images/delete.svg">
     </section>

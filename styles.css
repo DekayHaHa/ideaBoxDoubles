@@ -153,54 +153,29 @@ label {
 
 .card {
   margin: 20px auto;
-  border: 2px solid grey;
   height: 100px;
   width: 60%;
-}
-
-/*
-.show-more-wrapper {
-  background-color: #F9F9FA; 
-}
-
-.show-more-button {
-  margin-bottom: 20px;
-  margin-left: 20%;
-  margin-top: 18px;
-  width: 60%;
-}
-
-.overflow {
-  display: grid;
-  grid-template-columns: 1fr 3fr 1fr;
-  max-height: 1545px;
-}
-
-.overflow {
-  overflow: hidden;
-}
-
-.hide-button {
-  display: none;
-}
-
-.idea-card {
   background-color: #FFFFFF;
   border-radius: 5px;
   border: solid 2px #d4d2d8; 
-  grid-column: 2/3;
   height: auto;
-  margin: 18px 0px;
 }
 
-.idea-title {
+.title {
   color: #6E646B;
   font-weight: 800;
   outline: none;
   padding: 10px 0px 0px 10px;
+  height: 38px;
+  overflow: scroll;
 }
 
-.idea-body {
+.quality-text {
+  color: #6E646B;
+  font-weight: 600;
+}
+
+.body {
   color: #7C7879;
   font-weight: 300;
   margin: 10px;
@@ -208,12 +183,13 @@ label {
   outline: none;
   overflow: scroll;
   padding: 1px;
-}*/
+  height: 55px;
+}
 
 .button-corral {
   border-top: solid 2px #d4d2d8;
   display: flex;
-  height: 4vh;
+  height: 32px;
   justify-content: space-between;
   padding: 4px 0px;
 }
@@ -223,40 +199,32 @@ label {
   display: flex;
 }
 
-img {
+.delete, 
+.downvote, 
+.upvote {
   height: 18px;
   margin-right: 10px;
   width: 18px;
 }
 
-/*.downvote-icon {
+.delete {
+  align-items: center;
+}
+
+.downvote {
   margin-left: 10px;
 }
 
-.downvote-icon:hover, 
-.upvote-icon:hover {
+.delete:hover, 
+.downvote:hover, 
+.upvote:hover {
   cursor: pointer;
 }
 
-.quality-text, 
-.quality-category {
-  color: #7C7879;
-  font-size: 14px;
-  font-weight: 600;
-}
 
-.delete {
-  align-items: center;
-  cursor: pointer;
-  display: flex;
-}
-*/
 @media screen and (max-width: 700px) {
-  .filter-buttons-section {
-    flex-direction: column;
-  }
-  .filter-button {
-    width: 100%;
+   .filter-button {
+    width: 45%;
   }
   .idea-form {
     grid-column: 1/4;
@@ -278,11 +246,12 @@ img {
 }
 
 @media screen and (max-width: 550px) {
-  nav {
+  header {
     align-items: center;
     display: flex;
     flex-direction: column;
   }
+
   .page-title-purple {
     padding-left: 0px;
   }
