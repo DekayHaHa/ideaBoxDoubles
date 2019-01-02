@@ -145,6 +145,7 @@ function showButton () {
   }
 }
 
+
 function characterCount (value) {
   let bodyCount = document.querySelector(".body-count");
   let titleCount = document.querySelector(".title-count");
@@ -155,3 +156,36 @@ function characterCount (value) {
     value.length === 0 ? titleCount.innerText = "" : titleCount.innerText = ` | Character Count ${value.length}`;
   }
 }
+
+document.querySelector('.filter-buttons-section').addEventListener('click', buttonDetect);
+
+function buttonDetect(e) {
+  e.preventDefault();
+    var targetButton = event.target
+    if (targetButton.innerText === 'Swill') {
+      qualityFilter('swill');
+      }
+    if (targetButton.innerText === 'Plausible') {
+      qualityFilter('plausible');
+    }
+    if (targetButton.innerText === 'Genius') {
+      qualityFilter('genius');
+    }
+    if (targetButton.innerText === 'Reset') {
+    clearCards();  
+    filteredIdeas(ideaArray);  
+  }
+}
+  function qualityFilter(type) {
+  let filteredArray = ideaArray.filter(function(idea) {
+    if (idea.quality === type) {
+      return idea; 
+    } 
+    
+  })
+  clearCards();
+  filteredIdeas(filteredArray);
+}
+
+
+
