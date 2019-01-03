@@ -1,9 +1,22 @@
 # ideaBoxDoubles
 
-
 ## A web-based application that allows user to add and edit ideas
 
 ## The Ideabox app allows a user to keep track of their ideas in several ways, differentiating them using titles, body content, and quality filters. Ideas are then saved to local storage which allows users to make adjustments at a later time if/when they update their idea(s). Users are able to sort their ideas based on quality and can use the search feature to find ideas based on title and body content as well as removing ideas from their list.
+
+### Built With
+HTML
+CSS
+Javascript
+
+## Build status
+- Complete
+
+### First Update
+- Condense redundant functions
+- Refactor
+- Use array in local storage
+- Use only 2 event listeners
 
 ![alt text](images/ibDesk.png)
 
@@ -16,12 +29,6 @@
 
 ![alt text](images/IB2nd.png)
 
-
-### Built With
-HTML
-CSS
-Javascript
-
 ### Contributors
 Tim Miller  
 Devin Kapla
@@ -32,4 +39,10 @@ Devin Kapla
 
 ![alt text](images/IBmobile.png)
 
-### Provided comp:
+### Provided comps:
+
+![alt text](images/idea-comp1.jpg)
+
+### Mobile
+
+![alt text](images/ideabox-triples-02.jpg)
