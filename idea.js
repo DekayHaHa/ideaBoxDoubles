@@ -20,7 +20,7 @@ class Idea {
     } else if (check === 1) {
       this.quality = "plausible"
     } else {
-    this.quality = "genius"
+      this.quality = "genius"
     }
     this.saveToStorage();
   }

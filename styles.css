@@ -223,26 +223,26 @@ label {
 
 
 @media screen and (max-width: 700px) {
-   .filter-button {
-    width: 45%;
-  }
-  .idea-form {
-    grid-column: 1/4;
-    padding: 20px 15px 0px 15px;
-  }
-  .idea-card {
-    grid-column: 1/4; 
-    margin: 20px 15px 0px 15px;
-  }
-  .idea-title {
-    padding: 10px 10px 6px 10px;
-  }
-  .idea-body {
-    overflow: scroll;
-  }
-  .card {
-    width: 93%;
-  }
+ .filter-button {
+  width: 45%;
+}
+.idea-form {
+  grid-column: 1/4;
+  padding: 20px 15px 0px 15px;
+}
+.idea-card {
+  grid-column: 1/4; 
+  margin: 20px 15px 0px 15px;
+}
+.idea-title {
+  padding: 10px 10px 6px 10px;
+}
+.idea-body {
+  overflow: scroll;
+}
+.card {
+  width: 93%;
+}
 }
 
 @media screen and (max-width: 550px) {

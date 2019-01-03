@@ -5,6 +5,15 @@
 
 ## The Ideabox app allows a user to keep track of their ideas in several ways, differentiating them using titles, body content, and quality filters. Ideas are then saved to local storage which allows users to make adjustments at a later time if/when they update their idea(s). Users are able to sort their ideas based on quality and can use the search feature to find ideas based on title and body content as well as removing ideas from their list.
 
+## Build status
+- Complete
+
+### First update
+- Condense redundant functions
+- Refactor
+- Use array in local storage
+- Use only 2 event listeners
+
 ![alt text](images/ibDesk.png)
 
 ## Usage example
@@ -33,3 +42,7 @@ Devin Kapla
 ![alt text](images/IBmobile.png)
 
 ### Provided comp:
+![alt text](images/idea-comp1.jpg)
+
+## Mobile comp:
+![alt text](images/ideabox-triples-02.jpg)
