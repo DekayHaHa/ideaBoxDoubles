@@ -7,7 +7,6 @@ class Idea {
   }
 
   saveToStorage() {
-    // create array - push array - then save array 
     localStorage.setItem(this.id, JSON.stringify(this));
   }
 
@@ -27,14 +26,7 @@ class Idea {
   }
 
   updateContent(newText, category) {
-    // if (category === "title") {
-    //   this.title = newText;
-    // }
-    // if (category === "body") {
-    //   this.body = newText;
-    // }
     category === "title" ? this.title = newText : this.body = newText;
     this.saveToStorage();
   }
-
 }
