@@ -18,13 +18,13 @@
 
 
 ### Built With
-#### HTML
-#### CSS
-#### Javascript
+HTML
+CSS
+Javascript
 
 ### Contributors
-#### Tim Miller  
-#### Devin Kapla
+Tim Miller  
+Devin Kapla
 
 ## Comp:
 ### Our comp:
