@@ -1,8 +1,7 @@
 document.querySelector(".save-button").addEventListener("click", ideaClass);
+document.querySelector('.filter-buttons-section').addEventListener('click', buttonDetect);
 window.addEventListener("load", cardPersist);
 var ideaArray = []; 
-
-
 
 function cardPersist() {
   Object.keys(localStorage).forEach(function(card){
@@ -94,21 +93,11 @@ function qualityChangeUp(cardId) {
   }
 }
 
-
 function cardChange(category) {
-  // if (category === 'title') {
-    console.log(doggo)
     let cardId = JSON.parse(event.target.dataset.id);
     let card = ideaArray.find(idea => idea.id === cardId);
     let newText = event.target.innerText;
     card.updateContent(newText, category);
-  // }
-  // if (category === 'body') {
-  //   let cardId = JSON.parse(event.target.dataset.id);
-  //   let card = ideaArray.find(idea => idea.id === cardId);
-  //   let newText = event.target.innerText;
-  //   card.updateContent(newText, category);
-  // }
 }
 
 function searchFilter (text) {
@@ -157,8 +146,6 @@ function characterCount (value) {
   }
 }
 
-document.querySelector('.filter-buttons-section').addEventListener('click', buttonDetect);
-
 function buttonDetect(e) {
   e.preventDefault();
     var targetButton = event.target
@@ -181,7 +168,6 @@ function buttonDetect(e) {
     if (idea.quality === type) {
       return idea; 
     } 
-    
   })
   clearCards();
   filteredIdeas(filteredArray);
