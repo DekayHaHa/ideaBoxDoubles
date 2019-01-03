@@ -10,20 +10,26 @@
 Usage example
 In this first example the user has added several ideas to their list and changed their quality:
 
+![alt text](images/ib1st.png)
 
 In this second example the user has filtered down to just the plausible ideas from their list:
+
+![alt text](images/ib2nd.png)
+
 
 Built With
 HTML
 CSS
-
 Javascript
 
 Contributors
 Tim Miller  
 Devin Kapla
 
-Comp
+Comp:
 Our comp:
+![alt text](images/ibDesk.png)
+
+![alt text](images/ibmobile.png)
 
 Provided comp:
