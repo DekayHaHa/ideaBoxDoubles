@@ -26,7 +26,8 @@ class Idea {
   }
 
   updateContent(newText, category) {
-    category === "title" ? this.title = newText : this.body = newText;
+    this[category] = newText;
+    // category === "title" ? this.title = newText : this.body = newText;
     this.saveToStorage();
   }
 }
