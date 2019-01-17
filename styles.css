@@ -251,6 +251,10 @@ label {
     display: flex;
     flex-direction: column;
   }
+  
+  .filter-button {
+    font-size: 13px;
+  }
 
   .page-title-purple {
     padding-left: 0px;
