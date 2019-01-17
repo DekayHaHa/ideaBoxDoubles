@@ -1,21 +1,21 @@
 document.querySelector(".save-button").addEventListener("click", ideaClass);
 document.querySelector('.filter-buttons-section').addEventListener('click', buttonDetect);
 window.addEventListener("load", cardPersist);
-var ideaArray = []; 
+let ideaArray = []; 
 
 function cardPersist() {
-  Object.keys(localStorage).forEach(function(card){
-    var item = JSON.parse(localStorage.getItem(card)); 
-    var newIdea = new Idea(item.id, item.title, item.body, item.quality);  
+  Object.keys(localStorage).forEach(card => {
+    const item = JSON.parse(localStorage.getItem(card)); 
+    const newIdea = new Idea(item.id, item.title, item.body, item.quality);  
     ideaArray.push(newIdea);
     newCard(newIdea);
   });
 }
 
 function ideaClass() {
-  var titleInput = document.getElementById("title-input");
-  var bodyInput = document.getElementById("body-input");
-  var newIdea = new Idea(Date.now(), titleInput.value, bodyInput.value);
+  const titleInput = document.getElementById("title-input");
+  const bodyInput = document.getElementById("body-input");
+  const newIdea = new Idea(Date.now(), titleInput.value, bodyInput.value);
   ideaArray.push(newIdea); 
   newIdea.saveToStorage();
   newCard(newIdea);
@@ -23,7 +23,7 @@ function ideaClass() {
 }
 
 function newCard(idea) {
-  var cardSection = document.querySelector(".card-section");
+  const cardSection = document.querySelector(".card-section");
   cardSection.insertAdjacentHTML('afterbegin',
     `<article class="card"  id="${idea.id}">
     <h2 class="title" data-id="${idea.id}" contenteditable="true" onfocusout="cardChange('title')" onkeydown="enterKey('title')">${idea.title}</h2>
@@ -40,10 +40,10 @@ function newCard(idea) {
 }
 
 function clearFields() {
-  var titleInput = document.getElementById("title-input");
-  var bodyInput = document.getElementById("body-input");
-  let bodyCount = document.querySelector(".body-count");
-  let titleCount = document.querySelector(".title-count");
+  const titleInput = document.getElementById("title-input");
+  const bodyInput = document.getElementById("body-input");
+  const bodyCount = document.querySelector(".body-count");
+  const titleCount = document.querySelector(".title-count");
   bodyCount.innerText = "";
   titleCount.innerText = "";
   titleInput.value = "";
@@ -101,7 +101,7 @@ function cardChange(category) {
 }
 
 function searchFilter (text) {
-  let filteredArray = ideaArray.filter(function(idea) {
+  let filteredArray = ideaArray.filter(idea => {
     let inputText = text.toLowerCase();
     if (idea.title.toLowerCase().includes(inputText) || idea.body.toLowerCase().includes(inputText)) {
       return idea;
@@ -112,19 +112,17 @@ function searchFilter (text) {
 }
 
 function clearCards () {
-  var cardSection = document.querySelector(".card-section");
+  const cardSection = document.querySelector(".card-section");
   cardSection.innerHTML = "";
 }
 
 function filteredIdeas (array) {
-  array.forEach(function (idea) {
-    newCard(idea);
-  })
+  array.forEach(idea => newCard(idea);)
 }
 
 function showButton () {
   event.preventDefault();
-  var cardHolder = document.getElementById("max-height");
+  const cardHolder = document.getElementById("max-height");
   if (event.target.innerText === "Show More") {
     cardHolder.classList.remove("max-height");
     event.target.innerText = "Show Less";
@@ -148,7 +146,7 @@ function characterCount (value) {
 
 function buttonDetect(e) {
   e.preventDefault();
-    var targetButton = event.target
+    const targetButton = event.target
     if (targetButton.innerText === 'Swill') {
       qualityFilter('swill');
       }
@@ -164,7 +162,7 @@ function buttonDetect(e) {
   }
 }
   function qualityFilter(type) {
-  let filteredArray = ideaArray.filter(function(idea) {
+  let filteredArray = ideaArray.filter(idea => {
     if (idea.quality === type) {
       return idea; 
     } 
